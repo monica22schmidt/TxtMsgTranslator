@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class TextMsgExpander {
+   public static String decTextAbbr(String text){
+      String result = "";
+      if (text == "LOL") {
+         result = "laughing out loud";
+      }
+      else if (text == "IDK"){
+         result = "I don't know";
+      }
+      else if (text == "BFF"){
+         result = "best friends forever";
+      }
+      else if (text == "IMHO"){
+         result = "in my humble opinion";
+      }
+      else if (text == "TMI"){
+         result = "too much information";
+      }
+      else{
+         result = "Unknown";
+      }
+      return result;
+   }
+      
+   public static void main(String[] args) {
+      Scanner scr = new Scanner(System.in);
+      System.out.println("Enter text:");
+      String message = scr.nextLine();
+      System.out.println("You entered: " + message);
+      System.out.println();
+      int index_lol = message.indexOf("LOL");
+      int index_idk = message.indexOf("IDK");
+      int index_bff = message.indexOf("BFF");
+      int index_imho = message.indexOf("IMHO");
+      int index_tmi = message.indexOf("TMI");
+      int length = message.length();
+      if (index_lol>0){
+         System.out.println("Replaced \"LOL\" with \"" + decTextAbbr("LOL") + "\".");
+      }
+      String new_word = decTextAbbr("LOL");
+      message = message.replaceAll("LOL", new_word);
+      
+      if (index_idk>=0){
+         System.out.println("Replaced \"IDK\" with \"" + decTextAbbr("IDK") + "\".");
+      }
+      String new_word2 = decTextAbbr("IDK");
+      message = message.replaceAll("IDK", new_word2);
+      
+      if (index_bff>=0){
+         System.out.println("Replaced \"BFF\" with \"" + decTextAbbr("BFF") + "\".");
+      }
+      String new_word3 = decTextAbbr("BFF");
+      message = message.replaceAll("BFF", new_word3);
+      
+      if (index_imho>=0){
+         System.out.println("Replaced \"IMHO\" with \"" + decTextAbbr("IMHO") + "\".");
+      }
+      String new_word4 = decTextAbbr("IMHO");
+      message = message.replaceAll("IMHO", new_word4);
+      
+      if (index_tmi>=0){
+         System.out.println("Replaced \"TMI\" with \"" + decTextAbbr("TMI") + "\".");
+      }
+      System.out.println();
+      String new_word5 = decTextAbbr("TMI");
+      message = message.replaceAll("TMI", new_word5);
+      System.out.println("Expanded: " + message);
+      return;
+   }
+}
